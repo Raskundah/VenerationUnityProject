@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 3.0f;
     public static bool isFlipped = false;
+    private static bool isJumping = false;
+    private static bool hasSword = false;
+    [SerializeField] public static bool isAttacking = false;
 
     private Rigidbody2D physicsBody = null;
     private Animator animator = null;
@@ -36,6 +40,12 @@ public class PlayerMovement : MonoBehaviour
     // will be between -1 and 1
 
     {
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("attack"))
+        {
+            isAttacking = false;
+        }
+
+        
         float axisValX = Input.GetAxis("Horizontal");
         float axisValY = Input.GetAxis("Vertical");
         Vector2 newVel = new Vector2(axisValX, axisValY);
@@ -53,25 +63,35 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void MoveUp()
+    public void MoveUp() // THIS IS NOW THE JUMP METHOD.
     {
-        Debug.Log("Move Up Button Pressed!");
-        Vector2 newVel = new Vector2(0, moveSpeed);
-        animator.SetBool("Jumping", true);
-        
-        
+        if (!isJumping)
+        {
 
-        physicsBody.velocity = newVel;
+            Debug.Log("Move Up Button Pressed!");
+            Vector2 newVel = new Vector2(0, moveSpeed);
+            animator.SetBool("Jumping", true);
+
+            physicsBody.velocity = newVel;
+            isJumping = true;
+
+        }
 
     }
     
-    public void MoveDown()
+    public void MoveDown() // this Method now attacks. DOES NOT MOVE DOWN.
     {
-        Debug.Log("Move Down Button Pressed!");
-
+        /*Debug.Log("Move Down Button Pressed!");
         Vector2 newVel = new Vector2(0, -moveSpeed);
+        physicsBody.velocity = newVel; */
 
-        physicsBody.velocity = newVel;
+        if (hasSword)
+        {
+            animator.SetBool("Attacking", true);
+            isAttacking = true;
+        }
+        
+        
     }
 
     public void MoveRight()
@@ -96,9 +116,28 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("Walking", true);
 
         physicsBody.velocity = newVel;
-
         
-
     }
+
+    public void OnCollisionEnter2D(Collision2D col)
+    {
+        GameObject gameObject = col.gameObject;
+
+        Rigidbody2D rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+
+        if (gameObject != null)
+        {
+            isJumping = false;
+        }
+
+        if (gameObject.tag == "Sword")
+        {
+            hasSword = true;
+            Destroy(gameObject);
+
+        }
+        
+    }
+
 
 }
