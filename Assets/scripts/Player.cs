@@ -5,12 +5,12 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 
 {
     [SerializeField] private LayerMask platformsLayerMask;
     public float moveSpeed = 10.0f;
-    private static bool isFlipped = false;
+    public static bool isFlipped = false;
     private static bool isJumping = false;
     private static bool hasSword = false;
     [SerializeField] public static bool isAttacking = false;
@@ -69,13 +69,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void MoveUp() // THIS IS NOW THE JUMP METHOD.
     {
-        if (!isJumping || IsGrounded())
+        if (!isJumping)
         {
 
             Debug.Log("Move Up Button Pressed!");
             Vector2 newVel = new Vector2(0, moveSpeed);
             animator.SetBool("Jumping", true);
-            float jumpVel = 50f;
+            float jumpVel = 3f;
 
             physicsBody.velocity = newVel * jumpVel;
             isJumping = true;
@@ -144,12 +144,14 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private bool IsGrounded()
+   /* private bool IsGrounded()
     {
         var bounds = boxCollider.bounds;
         RaycastHit2D rayCastHit = Physics2D.BoxCast(bounds.center, bounds.size, 0f, Vector2.down * .1f, platformsLayerMask);
         return rayCastHit.collider != null;
     }
+    
+    */
 
 
 }

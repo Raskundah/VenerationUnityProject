@@ -12,6 +12,6 @@ public class IdleLogic : MonoBehaviour
     { 
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("attack"))
 
-            PlayerMovement.isAttacking = false;
+            Player.isAttacking = false;
     }
 }

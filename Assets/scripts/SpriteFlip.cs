@@ -25,6 +25,6 @@ public class SpriteFlip : MonoBehaviour
     
     public void Update()
     {
-        _renderer.flipX = PlayerMovement.isFlipped;
+        _renderer.flipX = Player.isFlipped;
     }
 }
