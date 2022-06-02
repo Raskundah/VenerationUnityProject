@@ -8,14 +8,17 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 
 {
-    public float moveSpeed = 3.0f;
-    public static bool isFlipped = false;
+    [SerializeField] private LayerMask platformsLayerMask;
+    public float moveSpeed = 10.0f;
+    private static bool isFlipped = false;
     private static bool isJumping = false;
     private static bool hasSword = false;
     [SerializeField] public static bool isAttacking = false;
 
     private Rigidbody2D physicsBody = null;
     private Animator animator = null;
+    private BoxCollider2D boxCollider = null;
+    
 
 
 
@@ -24,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
 
     {
+        DontDestroyOnLoad(gameObject);
         physicsBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
@@ -49,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         float axisValX = Input.GetAxis("Horizontal");
         float axisValY = Input.GetAxis("Vertical");
         Vector2 newVel = new Vector2(axisValX, axisValY);
-        newVel = newVel * moveSpeed;
+        newVel *= moveSpeed;
         // physicsBody.velocity = newVel;
 
         // Vector2 currentVel = physicsBody.velocity;
@@ -65,14 +69,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void MoveUp() // THIS IS NOW THE JUMP METHOD.
     {
-        if (!isJumping)
+        if (!isJumping || IsGrounded())
         {
 
             Debug.Log("Move Up Button Pressed!");
             Vector2 newVel = new Vector2(0, moveSpeed);
             animator.SetBool("Jumping", true);
+            float jumpVel = 50f;
 
-            physicsBody.velocity = newVel;
+            physicsBody.velocity = newVel * jumpVel;
             isJumping = true;
 
         }
@@ -130,13 +135,20 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
         }
 
-        if (gameObject.tag == "Sword")
+        if (gameObject.CompareTag("Sword"))
         {
             hasSword = true;
             Destroy(gameObject);
 
         }
         
+    }
+
+    private bool IsGrounded()
+    {
+        var bounds = boxCollider.bounds;
+        RaycastHit2D rayCastHit = Physics2D.BoxCast(bounds.center, bounds.size, 0f, Vector2.down * .1f, platformsLayerMask);
+        return rayCastHit.collider != null;
     }
 
 

@@ -20,6 +20,7 @@ public class ScoreTotal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         scoreDisplay.text = scoreValue.ToString();
     }
 }
