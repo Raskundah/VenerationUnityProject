@@ -18,7 +18,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D physicsBody = null;
     private Animator animator = null;
     private BoxCollider2D boxCollider = null;
-    
+    public BoxCollider2D swordCollider;
+    private float timer = 2f;
 
 
 
@@ -42,15 +43,29 @@ public class Player : MonoBehaviour
 
     // Ask unity input manager for the current value of the horizontal/Vertical axis
     // will be between -1 and 1
-
+    
+    
     {
+        
+        /*
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("attack"))
         {
             isAttacking = false;
-            
+            swordCollider.enabled = false;
+
         }
-        
-        
+      */
+
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+
+        if (timer <= 0)
+        {
+            swordCollider.enabled = false;
+            isAttacking = false;
+        }
 
         
         float axisValX = Input.GetAxis("Horizontal");
@@ -99,6 +114,8 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("Attacking", true);
             isAttacking = true;
+            timer = 0.5f;
+            swordCollider.enabled = true;
         }
         
         

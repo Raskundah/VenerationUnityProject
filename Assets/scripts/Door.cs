@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Door : MonoBehaviour
 {
     public string targetScene;
+    private ScoreTotal scoreTotal;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,6 +19,8 @@ public class Door : MonoBehaviour
             // ACTION! CHANGE SCENE!!!!
 
             SceneManager.LoadScene(targetScene);
+            
+            
         }
     }
 }

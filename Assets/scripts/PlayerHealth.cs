@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 //Purpose: handle player damage and dying When told to do so by a hazard.
 public class PlayerHealth : MonoBehaviour
 {
-    private int currentHealth;
+    public static int currentHealth;
     public int maxHealth = 100;
 
     public float hitInvulnMaxTime;
     private float hitTime = 0;
+    public Text healthDisplay;
 
     private void Awake()
     {
@@ -27,7 +30,12 @@ public class PlayerHealth : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void ChangeHealth(int changeamount)
+    public void healthUpdate()
+    {
+        healthDisplay.text = currentHealth.ToString();
+    }
+
+    public void ChangeHealth(int changeAmount)
 
     //condition
     //has it been long enough since last damage
@@ -36,13 +44,14 @@ public class PlayerHealth : MonoBehaviour
         if (Time.time >= hitTime + hitInvulnMaxTime)
         {
                 // action: damage
-            currentHealth += changeamount;
+            currentHealth += changeAmount;
 
             hitTime = Time.time;
 
             if (currentHealth <= 0)
             {
                 Destroy(gameObject);
+                SceneManager.LoadScene("MainMenu");
             }
         }
     }    
