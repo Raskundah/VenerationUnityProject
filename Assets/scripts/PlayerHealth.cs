@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
     private void Awake()
     {
         currentHealth = maxHealth;
+        healthUpdate();
 
         // initializing health to be max health on spawn.
     }
@@ -54,5 +56,10 @@ public class PlayerHealth : MonoBehaviour
                 SceneManager.LoadScene("MainMenu");
             }
         }
-    }    
+    }
+
+    public void Update()
+    {
+        healthUpdate();
+    }
 }

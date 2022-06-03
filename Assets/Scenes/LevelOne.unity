@@ -275,23 +275,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e998c4e009e55d44a8b08747aa025836, type: 3}
---- !u!1 &122027900 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 65014612510604551, guid: 8d03d1a3a669c764cab44c3d6ba46451, type: 3}
-  m_PrefabInstance: {fileID: 65014613848053896}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &122027905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122027900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70d6d4c5634ab8347b9c9a0050f966f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &143642425
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +407,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &284357839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4559167988227830162, guid: 38cbf7e195f5d9d468f67c45eb7f326d, type: 3}
+  m_PrefabInstance: {fileID: 349899736}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &284357845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284357839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c5d579c4d1e004faba1f78b4c0bd96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hazardDamage: 34
 --- !u!1001 &349899736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -620,6 +621,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &584549104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5142134688452456741, guid: 8d03d1a3a669c764cab44c3d6ba46451, type: 3}
+  m_PrefabInstance: {fileID: 65014613848053896}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &692167565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,6 +1958,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 712323454, guid: e7904e1a71ae3ba48ac1f698405035d0, type: 3}
+      propertyPath: healthDisplay
+      value: 
+      objectReference: {fileID: 584549104}
     - target: {fileID: 712323457, guid: e7904e1a71ae3ba48ac1f698405035d0, type: 3}
       propertyPath: scoreDisplay
       value: 
