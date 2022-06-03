@@ -22,7 +22,7 @@ public class Hazard : MonoBehaviour
         //when our hazard object collides with player
 
         //enough time has passed since we last collided;
-       if (playerHealth != null)
+       if (playerHealth != null || collision.gameObject.CompareTag("Player"))
         {
             playerHealth.ChangeHealth(-hazardDamage);
         }
