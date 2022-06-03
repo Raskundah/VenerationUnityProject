@@ -1949,6 +1949,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 712323451}
+    - target: {fileID: 5142134688452456741, guid: 8d03d1a3a669c764cab44c3d6ba46451, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381927904696855053, guid: 8d03d1a3a669c764cab44c3d6ba46451, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -249
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381927904696855053, guid: 8d03d1a3a669c764cab44c3d6ba46451, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 165.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d03d1a3a669c764cab44c3d6ba46451, type: 3}
 --- !u!1001 &229189369759772122

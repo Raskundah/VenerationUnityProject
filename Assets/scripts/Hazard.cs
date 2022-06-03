@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Purpose: This script handles the killing of players on collision with the object that has this script.
+//Purpose: This script handles the damaging of players on collision with the object that has this script.
 
 public class Hazard : MonoBehaviour
 {
     //get playerhealth component
 
 
-    // how much damege this does
+    // how much damage this does
     [Tooltip("Positive number removes the health")]
     public int hazardDamage; 
 
@@ -21,7 +21,7 @@ public class Hazard : MonoBehaviour
         // condition
         //when our hazard object collides with player
 
-        //enoug time has passed since we last collided;
+        //enough time has passed since we last collided;
        if (playerHealth != null)
         {
             playerHealth.ChangeHealth(-hazardDamage);
