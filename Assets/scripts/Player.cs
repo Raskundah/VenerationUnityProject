@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     void Start()
 
     {
-        DontDestroyOnLoad(gameObject);
+
         physicsBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
@@ -47,7 +47,10 @@ public class Player : MonoBehaviour
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("attack"))
         {
             isAttacking = false;
+            
         }
+        
+        
 
         
         float axisValX = Input.GetAxis("Horizontal");
@@ -66,6 +69,8 @@ public class Player : MonoBehaviour
 
 
     }
+    
+    
 
     public void MoveUp() // THIS IS NOW THE JUMP METHOD.
     {
@@ -140,6 +145,11 @@ public class Player : MonoBehaviour
             hasSword = true;
             Destroy(gameObject);
 
+        }
+        
+        if(col.gameObject.tag == "Enemy" && isAttacking)
+        {
+            Destroy(col.gameObject);
         }
         
     }
