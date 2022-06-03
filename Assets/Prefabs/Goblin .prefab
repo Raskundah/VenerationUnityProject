@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4559167988227829359}
   - component: {fileID: 4559167988227829358}
   - component: {fileID: 4559167988227829357}
+  - component: {fileID: 284357845}
+  - component: {fileID: 983501910265557138}
   m_Layer: 0
   m_Name: 'Goblin '
   m_TagString: Enemy
@@ -77,7 +79,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1e31ab809d8e6e940978b9b8cc37220f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -99,14 +101,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 15
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &4559167988227829358
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -152,3 +154,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &284357845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4559167988227830162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c5d579c4d1e004faba1f78b4c0bd96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hazardDamage: 34
+--- !u!114 &983501910265557138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4559167988227830162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85b22b1a4b44ba648bad30302c061003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceStrength: 1
+  direction: {x: 0, y: 0}
