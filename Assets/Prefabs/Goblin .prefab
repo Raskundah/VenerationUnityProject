@@ -180,5 +180,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceStrength: 1500
-  direction: {x: 0, y: 0}
+  direction: {x: -1, y: 0}
   _SpriteRenderer: {fileID: 4559167988227830161}
