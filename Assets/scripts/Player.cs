@@ -20,8 +20,21 @@ public class Player : MonoBehaviour
     private BoxCollider2D boxCollider = null;
     public BoxCollider2D swordCollider;
     private float timer = 2f;
+    private static Player instance;
 
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
 
+        else
+        {
+            instance = this;
+        }
+            
+    }
 
 
     // Start is called before the first frame update

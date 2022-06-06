@@ -12,6 +12,7 @@ public class GoblinLineMovement : MonoBehaviour
     public float forceStrength = 1; //how fast the enemy moves
     
     public Vector2 direction; // what direction to move in.
+    public SpriteRenderer _SpriteRenderer;
     
     
     // private variables.
@@ -33,5 +34,11 @@ public class GoblinLineMovement : MonoBehaviour
     {
         // move in correct direction. with the set force Strength
         _rigidbody2D.AddForce(direction * forceStrength);
+        
+    }
+
+    public void FlipGoblin()
+    {
+        _SpriteRenderer.flipX = !_SpriteRenderer.flipX;
     }
 }

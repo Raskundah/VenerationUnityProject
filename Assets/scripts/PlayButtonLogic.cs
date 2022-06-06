@@ -14,7 +14,6 @@ public class PlayButtonLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 {
     // Store button here to be used.
     private Button button;
-    public string sceneTarget;
 
     //Track condition of button press.
     private bool isButtonPressed;
@@ -55,9 +54,21 @@ public class PlayButtonLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         if(isButtonPressed)
         {   // call the on click function set up in Unity for this button
             button.onClick?.Invoke();
-            SceneManager.LoadScene(sceneTarget);
         }
+        
+        
     }
+
+    public void SceneChange(string newScene)
+    {
+        SceneManager.LoadScene(newScene);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
+    
 }
 
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Sword
   - Enemy
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Test
   - Background
   - Platforms
-  - 
+  - Enemies
   - 
   - 
   - 
