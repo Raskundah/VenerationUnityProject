@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     public BoxCollider2D swordCollider;
     private float timer = 2f;
     private static Player instance;
+    private bool isGrounded = true;
 
     private void Awake()
     {
@@ -108,7 +110,7 @@ public class Player : MonoBehaviour
             Debug.Log("Move Up Button Pressed!");
             Vector2 newVel = new Vector2(0, moveSpeed);
             animator.SetBool("Jumping", true);
-            float jumpVel = 3f;
+            float jumpVel = 5f;
 
             physicsBody.velocity = newVel * jumpVel;
             isJumping = true;
@@ -136,27 +138,34 @@ public class Player : MonoBehaviour
 
     public void MoveRight()
     {
-        Debug.Log("Move Right Button Pressed!");
-        isFlipped = false;
-        
+        if (isGrounded)
+        {
 
-        Vector2 newVel = new Vector2(moveSpeed, 0);
+            Debug.Log("Move Right Button Pressed!");
+            isFlipped = false;
 
-        animator.SetBool("Walking", true);
 
-        physicsBody.velocity = newVel;
+            Vector2 newVel = new Vector2(moveSpeed, 0);
+
+            animator.SetBool("Walking", true);
+
+            physicsBody.velocity = newVel;
+        }
     }
 
     public void MoveLeft()
     {
-        Debug.Log("Move Left Button Pressed!");
-        isFlipped = true;
+        if (isGrounded)
+        {
+            Debug.Log("Move Left Button Pressed!");
+            isFlipped = true;
 
-        Vector2 newVel = new Vector2(- moveSpeed, 0);
-        animator.SetBool("Walking", true);
+            Vector2 newVel = new Vector2(-moveSpeed, 0);
+            animator.SetBool("Walking", true);
 
-        physicsBody.velocity = newVel;
-        
+            physicsBody.velocity = newVel;
+        }
+
     }
 
     public void OnCollisionEnter2D(Collision2D col)
@@ -181,10 +190,26 @@ public class Player : MonoBehaviour
         {
             Destroy(col.gameObject);
         }
+
+        if (gameObject.layer == 8)
+        {
+            isGrounded = true;
+        }
         
     }
 
-   /* private bool IsGrounded()
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        GameObject gameObject = other.gameObject;
+
+        if (gameObject.layer == 8)
+        {
+            isGrounded = false;
+        }
+    }
+
+    /* private bool IsGrounded()
     {
         var bounds = boxCollider.bounds;
         RaycastHit2D rayCastHit = Physics2D.BoxCast(bounds.center, bounds.size, 0f, Vector2.down * .1f, platformsLayerMask);

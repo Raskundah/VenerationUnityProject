@@ -4962,6 +4962,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 519420031, guid: e7904e1a71ae3ba48ac1f698405035d0, type: 3}
+      propertyPath: orthographic size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420031, guid: e7904e1a71ae3ba48ac1f698405035d0, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.19215688
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420031, guid: e7904e1a71ae3ba48ac1f698405035d0, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.4745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420031, guid: e7904e1a71ae3ba48ac1f698405035d0, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.2986193
+      objectReference: {fileID: 0}
     - target: {fileID: 229189369052175520, guid: e7904e1a71ae3ba48ac1f698405035d0, type: 3}
       propertyPath: m_Name
       value: CharacterInUse
