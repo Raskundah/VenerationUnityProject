@@ -4964,7 +4964,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 519420031, guid: e7904e1a71ae3ba48ac1f698405035d0, type: 3}
       propertyPath: orthographic size
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 519420031, guid: e7904e1a71ae3ba48ac1f698405035d0, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -5025,6 +5025,22 @@ PrefabInstance:
     - target: {fileID: 229189369052175524, guid: e7904e1a71ae3ba48ac1f698405035d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2733897941750949652, guid: e7904e1a71ae3ba48ac1f698405035d0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -314
+      objectReference: {fileID: 0}
+    - target: {fileID: 2733897941750949652, guid: e7904e1a71ae3ba48ac1f698405035d0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 133.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 8618293140155998047, guid: e7904e1a71ae3ba48ac1f698405035d0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -249
+      objectReference: {fileID: 0}
+    - target: {fileID: 8618293140155998047, guid: e7904e1a71ae3ba48ac1f698405035d0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 133.77998
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7904e1a71ae3ba48ac1f698405035d0, type: 3}
@@ -5324,6 +5340,10 @@ PrefabInstance:
     - target: {fileID: 6366705795940266876, guid: 210fb928c3408aa4496b91810bc223bd, type: 3}
       propertyPath: m_Name
       value: Soundplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366705795940266876, guid: 210fb928c3408aa4496b91810bc223bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210fb928c3408aa4496b91810bc223bd, type: 3}
