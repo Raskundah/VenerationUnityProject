@@ -20,9 +20,10 @@ public class Player : MonoBehaviour
     private Animator animator = null;
     private BoxCollider2D boxCollider = null;
     public BoxCollider2D swordCollider;
-    private float timer = 2f;
+    private float timer = 15f;
     private static Player instance;
     private bool isGrounded = true;
+    private double swingTimer = 0.5d;
 
     private void Awake()
     {
@@ -125,14 +126,28 @@ public class Player : MonoBehaviour
         Vector2 newVel = new Vector2(0, -moveSpeed);
         physicsBody.velocity = newVel; */
 
-        if (hasSword)
+        if (hasSword && !isAttacking)
         {
             animator.SetBool("Attacking", true);
             isAttacking = true;
-            timer = 0.5f;
+            timer = 0.3f;
             swordCollider.enabled = true;
         }
-        
+
+       /* if (swingTimer >= 0)
+        {
+            isAttacking = false;
+        }
+
+        else
+        {
+            swingTimer = 0.5d;
+        }
+
+        swingTimer -= Time.deltaTime;
+
+        */
+
         
     }
 
