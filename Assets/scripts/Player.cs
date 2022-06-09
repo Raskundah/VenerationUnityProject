@@ -18,12 +18,12 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D physicsBody = null;
     private Animator animator = null;
-    private BoxCollider2D boxCollider = null;
+    private BoxCollider2D boxCollider ;
     public BoxCollider2D swordCollider;
     private float timer = 15f;
     private static Player instance;
     private bool isGrounded = true;
-    private double swingTimer = 0.5d;
+    private double swingTimer;
 
     private void Awake()
     {
