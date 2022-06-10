@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     private static Player instance;
     private bool isGrounded = true;
     private double swingTimer;
+    private double jumpTimer;
 
     private void Awake()
     {
@@ -97,6 +98,8 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("Walking", false);
         }
+        
+        
 
 
     }
