@@ -155,7 +155,7 @@ public class Player : MonoBehaviour
             swingTimer = 0.5d;
         }
 
-        swingTimer -= Time.deltaTime;
+        swingTimr -= Time.deltaTime;
 
         */
 
