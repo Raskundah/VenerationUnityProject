@@ -24,7 +24,8 @@ public class Player : MonoBehaviour
     private static Player instance;
     private bool isGrounded = true;
     private double swingTimer;
-    private double jumpTimer;
+    private double jumpTimer = 0d;
+
 
     private void Awake()
     {
@@ -63,7 +64,14 @@ public class Player : MonoBehaviour
     
     
     {
+
+        if(jumpTimer > 0)
+        {
+            jumpTimer -= Time.deltaTime;
+        }
+            
         
+       
         /*
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("attack"))
         {
@@ -211,7 +219,9 @@ public class Player : MonoBehaviour
 
         if (gameObject.layer == 8)
         {
+
             isGrounded = true;
+            jumpTimer = 2;
         }
         
     }
@@ -223,7 +233,17 @@ public class Player : MonoBehaviour
 
         if (gameObject.layer == 8)
         {
-            isGrounded = false;
+            
+
+            if (jumpTimer <= 0)
+
+            {
+                jumpTimer = 1d;
+                isGrounded = false;
+            }
+ 
+            
+                  
         }
     }
 
